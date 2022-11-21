@@ -26,6 +26,7 @@ dependencies {  // 프로젝트 개발에 필요한 의존성을 선언하는 �
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    //implementation 'org.springframework.session:spring-session-jdbc'
     implementation 'junit:junit:4.13.1'
 
     compileOnly 'org.projectlombok:lombok'
@@ -33,6 +34,7 @@ dependencies {  // 프로젝트 개발에 필요한 의존성을 선언하는 �
 
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {

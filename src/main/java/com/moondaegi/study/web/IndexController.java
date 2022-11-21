@@ -1,5 +1,6 @@
 package com.moondaegi.study.web;
 
+import com.moondaegi.study.config.auth.LoginUser;
 import com.moondaegi.study.config.auth.SessionUser;
 import com.moondaegi.study.service.posts.PostsService;
 import com.moondaegi.study.web.dto.PostsResponseDTO;
@@ -19,9 +20,8 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {  // 서버 탬플릿 엔진에서 사용하는 객체를 저장 할 수 있음
+    public String index(Model model, @LoginUser SessionUser sessionUser) {  // 서버 탬플릿 엔진에서 사용하는 객체를 저장 할 수 있음
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
 
         if (sessionUser != null) {
             model.addAttribute("userName", sessionUser.getName());
